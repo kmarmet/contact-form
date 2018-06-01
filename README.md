@@ -1,5 +1,5 @@
-# spamBlocker
-<i>Set of helper files to block form spam</i>
+# formValidation
+<i>Validate inputs and block spam</i>
 
 <h1>Don't forget to... </h1>
 <ul>
