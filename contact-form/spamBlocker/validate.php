@@ -2,7 +2,7 @@
    session_start();
    // Google reCaptcha
    $response   = $_POST['response'];
-   $secret_key = '6Lc4x1wUAAAAAAU-FaJe2c0L6vhFmv0avXBD5hbp';
+   $secret_key = 'GOOGLE RECAPTCHA SECRETY KEY';
    $verify     = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret_key}&response={$response}"));
 
    // CSRF Token
@@ -21,8 +21,7 @@
    $country       = clean_input($_POST["country"]);
    $phone         = clean_input($_POST["phone"]);
    $email         = clean_input($_POST["email"]);
-   $inquiry_array = json_decode($_POST['inquiry_array']);
-   $model_array   = json_decode($_POST['model_array']);
+   $input_array = json_decode($_POST['input_array']);
    $error         = '';
 
    // Helpers
@@ -44,11 +43,8 @@
    );
 
    // Form Arrays
-   if (is_array($model_array)) {
-      $model_array = implode('<br>', $model_array);
-   }
-   if (is_array($inquiry_array)) {
-      $inquiry_array = implode('<br>', $inquiry_array);
+   if (is_array($input_array)) {
+      $input_array = implode('<br>', $input_array);
    }
 
    // Clean Data
@@ -115,59 +111,55 @@
         <table width='600' border='0' cellspacing='0' cellpadding='5'>
             <tr>
                 <td valign='top' width='250'><strong>My inquiry is in reference to:</strong></td>
-                <td>$inquiry_array</td>
+                <td>$input_array</td>
             </tr>
             <tr style='background-color: #d7d7d7;'>
-               <td width='250'><strong> First Name:</strong></td>
+               <td width='250'><strong>First Name:</strong></td>
                <td>$first_name</td>
             </tr>
             <tr>
-               <td width='250'><strong> Last Name:</strong></td>
+               <td width='250'><strong>Last Name:</strong></td>
                <td>$last_name</td>
             </tr>
             <tr style='background-color: #d7d7d7;' >
-               <td width='250'><strong> Title:</strong></td>
+               <td width='250'><strong>Title:</strong></td>
                <td>$title</td>
             </tr>
             <tr>
-               <td width='250'><strong> Company:</strong></td>
+               <td width='250'><strong>Company:</strong></td>
                <td>$company</td>
             </tr>
             <tr style='background-color: #d7d7d7;' >
-               <td valign='top'><strong> Address:</strong></td>
+               <td valign='top'><strong>Address:</strong></td>
                <td>$address_one</td>
             </tr>
             <tr>
-               <td valign='top'><strong> Address Two:</strong></td>
+               <td valign='top'><strong>Address Two:</strong></td>
                <td>$address_two</td>
             </tr>
             <tr style='background-color: #d7d7d7;' >
-               <td width='250'><strong> City / Province:</strong></td>
+               <td width='250'><strong>City / Province:</strong></td>
                <td>$city</td>
             </tr>
             <tr>
-               <td width='250'><strong> State / Province:</strong></td>
+               <td width='250'><strong>State / Province:</strong></td>
                <td>$state</td>
             </tr>
             <tr style='background-color: #d7d7d7;' >
-               <td width='250'><strong> Zip / Postal Code:</strong></td>
+               <td width='250'><strong>Zip / Postal Code:</strong></td>
                <td>$zip</td>
             </tr>
             <tr>
-               <td width='250'><strong> Country:</strong></td>
+               <td width='250'><strong>Country:</strong></td>
                <td>$country</td>
             </tr>
             <tr style='background-color: #d7d7d7;' >
-               <td width='250'><strong> Email:</strong></td>
+               <td width='250'><strong>Email:</strong></td>
                <td>$email</td>
             </tr>
             <tr>
-               <td width='250'><strong> Phone:</strong></td>
+               <td width='250'><strong>Phone:</strong></td>
                <td>$phone</td>
-            </tr>
-            <tr>
-               <td valign='top' width='250'><strong> I would like more information on the following models:</strong></td>
-               <td>$model_array</td>
             </tr>
         </table> ";
 
@@ -177,20 +169,17 @@
       // $mail->SMTPDebug 					= 2;
       $mail->From     = $email;
       $mail->FromName = "{$first_name} {$last_name}";
-      $mail->Host     = 'dedrelay.secureserver.net';
+      $mail->Host     = 'HOST';
       $mail->Mailer   = "smtp";
 
       // RECIPIENTS
-      $mail->addAddress('kevin@whitemyer.com');
-      // $mail->addAddress('mtnorman@gradall.com');
-      // $mail->addBCC('lisa@whitemyer.com');
-      // $mail->addCC('wgpetrole@gradall.com');
+      $mail->addAddress('email@email.com');
+      $mail->addBCC('email@email.com');
+      $mail->addCC('email@email.com');
       $mail->addReplyTo($email, $first_name);
-      // $mail->AddCc		('erdietrich@gradall . com');
-      // $mail->addAddress('kevin@whitemyer.com');
 
       // CONTENT
-      $mail->Subject = 'Vacall Web Inquiry';
+      $mail->Subject = 'Web Inquiry';
       $mail->Body    = $mail_body;
       $mail->AltBody = $mail_body;
 
@@ -206,8 +195,6 @@
          $mail->ClearAttachments();
       }
    }
-
-   $debug = $verify->success;
 
    // Pass to front end
    $ajax_array = array(
