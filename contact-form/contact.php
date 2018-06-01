@@ -11,41 +11,27 @@
     </head>
     <body>
         <main role="main">
-            <div class="contact-error dw-60 tw-100"></div>
+            <div class="contact-error"></div>
             <form action="inc/contact-form/spamBlocker/validate.php" method="POST" class="contact-form" enctype="application/x-www-form-urlencoded">
-                <div class="textbox-cont dw-70 tw-100">
-                    <div class='flexbox-spread-wrap'>
-                        <input class='textbox dw-45' type="text" name="first_name" placeholder="FIRST NAME *">
-                        <input class='textbox dw-45' type="text" name="last_name" placeholder="LAST NAME *">
-                    </div>
-                    <div class='flexbox-spread-wrap'>
-                        <input class='textbox dw-45' type="text" name="title" placeholder="TITLE">
-                        <input class='textbox dw-45' type="text" name="company" placeholder="COMPANY/MUNICIPALITY">
-                    </div>
-                    <div class='flexbox-spread-wrap'>
-                        <input class='textbox dw-45' type="text" name="address_one" placeholder="ADDRESS ONE *">
-                        <input class='textbox dw-45' type="text" name="address_two" placeholder="ADDRESS TWO">
-                    </div>
-                    <div class='flexbox-spread-wrap'>
-                        <input class='textbox dw-30' type="text" name="city" placeholder="CITY *">
-                        <input class='textbox dw-30' type="text" name="state" placeholder="STATE OR PROVINCE *">
-                        <input class='textbox dw-30' type="text" name="zip" placeholder="POSTAL CODE *">
-                    </div>
-                    <input class='textbox dw-45' type="text" name="country" placeholder="COUNTRY *">
-                    <div class='flexbox-spread-wrap'>
-                        <input class='textbox dw-45' type="tel" name="phone" placeholder="PHONE *">
-                        <input class='textbox dw-45' type="email" name="email" placeholder="EMAIL *">
-                    </div>
-                </div>
+                <input type="text" name="first_name" placeholder="FIRST NAME *">
+                <input type="text" name="last_name" placeholder="LAST NAME *">
+                <input type="text" name="title" placeholder="TITLE">
+                <input type="text" name="company" placeholder="COMPANY/MUNICIPALITY">
+                <input type="text" name="address_one" placeholder="ADDRESS ONE *">
+                <input type="text" name="address_two" placeholder="ADDRESS TWO">
+                <input type="text" name="city" placeholder="CITY *">
+                <input type="text" name="state" placeholder="STATE OR PROVINCE *">
+                <input type="text" name="zip" placeholder="POSTAL CODE *">
+                <input type="text" name="country" placeholder="COUNTRY *">
+                <input type="tel" name="phone" placeholder="PHONE *">
+                <input type="email" name="email" placeholder="EMAIL *">
                 <!-- FORM SECURITY -->
                 <!-- Honeypot -->
                 <input style="display: none;" name="hp" type="text"/>
                 <!-- CSRF Token -->
                 <input type="hidden" name="token" value="<?php echo $token; ?>" class="token">
                 <div class="g-recaptcha" data-sitekey="GOOGLE RECAPTHCA SITEKEY"></div>
-                <div class='skewed-red-bg'>
-                    <input name='submit' type="submit" value="SUBMIT" class="contact-submit button">
-                </div>
+                <input name='submit' type="submit" value="SUBMIT" class="contact-submit button">
             </form>
         </main>
         <!-- Scripts -->
