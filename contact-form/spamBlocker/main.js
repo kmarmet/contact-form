@@ -69,7 +69,7 @@
             if (array.hasOwnProperty('error') && array['error'].length > 0) {
                onScroll.scrollToTop();
                errors.classList.add('active');
-               errors.innerHTML = array['error'];
+               errors.innerHTML = `<h1>MISSING FIELDS</h1><br> ${array['error']}`;
             }
             else if (array['redirect'] !== '') {
                window.location.replace('/index.php');
