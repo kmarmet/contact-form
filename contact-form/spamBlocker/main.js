@@ -57,9 +57,6 @@
       if (grecaptcha.getResponse().length <= 0) {
          event.preventDefault();
       }
-      if (grecaptcha.getResponse().success === 'true') {
-         grecaptcha.reset();
-      }
 
       request.onreadystatechange = function() {
          if (this.readyState === 4 && this.status === 200) {
@@ -67,6 +64,7 @@
             console.log(array);
 
             if (array.hasOwnProperty('error') && array['error'].length > 0) {
+               grecaptcha.reset();
                onScroll.scrollToTop();
                errors.classList.add('active');
                errors.innerHTML = `<h1>MISSING FIELDS</h1><br> ${array['error']}`;
