@@ -13,18 +13,18 @@
         <main role="main">
             <div class="contact-error"></div>
             <form action="inc/contact-form/spamBlocker/validate.php" method="POST" class="contact-form" enctype="application/x-www-form-urlencoded">
-                <input type="text" name="first_name" placeholder="FIRST NAME *">
-                <input type="text" name="last_name" placeholder="LAST NAME *">
+                <input type="text" name="first_name" placeholder="FIRST NAME *" required='required'>
+                <input type="text" name="last_name" placeholder="LAST NAME *" required='required'>
                 <input type="text" name="title" placeholder="TITLE">
                 <input type="text" name="company" placeholder="COMPANY/MUNICIPALITY">
-                <input type="text" name="address_one" placeholder="ADDRESS ONE *">
+                <input type="text" name="address_one" placeholder="ADDRESS ONE *" required='required'>
                 <input type="text" name="address_two" placeholder="ADDRESS TWO">
-                <input type="text" name="city" placeholder="CITY *">
-                <input type="text" name="state" placeholder="STATE OR PROVINCE *">
-                <input type="text" name="zip" placeholder="POSTAL CODE *">
-                <input type="text" name="country" placeholder="COUNTRY *">
-                <input type="tel" name="phone" placeholder="PHONE *">
-                <input type="email" name="email" placeholder="EMAIL *">
+                <input type="text" name="city" placeholder="CITY *" required='required'>
+                <input type="text" name="state" placeholder="STATE OR PROVINCE *" required='required'>
+                <input type="text" name="zip" placeholder="POSTAL CODE *" required='required'>
+                <input type="text" name="country" placeholder="COUNTRY *" required='required'>
+                <input type="tel" name="phone" placeholder="PHONE *" required='required'>
+                <input type="email" name="email" placeholder="EMAIL *" required='required'>
                 <!-- FORM SECURITY -->
                 <!-- Honeypot -->
                 <input style="display: none;" name="hp" type="text"/>
